@@ -44,7 +44,7 @@ def config_setting(raw,base=None):
 
 def checked_path(root,relative):
     candidate=root/relative
-    if not candidate.resolve().is_relative_to(root):raise ValueError('Skin dosyası seçilen klasörün dışına çıkıyor.')
+    if not candidate.resolve().is_relative_to(root.resolve()):raise ValueError('Skin dosyası seçilen klasörün dışına çıkıyor.')
     for part in [candidate,*candidate.parents]:
         if part.exists() and (part.is_symlink() or getattr(os.lstat(part),'st_file_attributes',0)&0x400):
             raise ValueError('Skin dosyaları bağlantı/junction üzerinden değiştirilemez.')
