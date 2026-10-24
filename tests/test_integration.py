@@ -84,6 +84,20 @@ class Tests(unittest.TestCase):
   (self.skin/'fxmanifest.lua').write_text("fx_version 'cerulean'");before=self.originals()
   with self.assertRaises(ValueError):integration.integrate(self.output,self.skin)
   self.assertEqual(before,self.originals())
+ def test_path_containment_uses_resolved_parent_on_both_sides(self):
+  original_resolve=Path.resolve;canonical_home=self.home.parent/('canonical-'+self.home.name)
+  def resolve_alias(path,*args,**kwargs):
+   try:return canonical_home/path.relative_to(self.home)
+   except ValueError:return original_resolve(path,*args,**kwargs)
+  with patch.object(Path,'resolve',resolve_alias):
+   self.assertEqual(integration.checked_path(self.skin,'fxmanifest.lua'),self.skin/'fxmanifest.lua')
+ def test_path_traversal_still_rejected(self):
+  with self.assertRaisesRegex(ValueError,'dışına'):integration.checked_path(self.skin,'../outside.lua')
+ def test_linked_resource_root_still_rejected(self):
+  original_is_symlink=Path.is_symlink
+  def root_link(path):return path==self.skin or original_is_symlink(path)
+  with patch.object(Path,'is_symlink',root_link):
+   with self.assertRaisesRegex(ValueError,'junction'):integration.checked_path(self.skin,'fxmanifest.lua')
  def test_no_directory_selection_means_no_network(self):
   c=Controller();c.values['output']=str(self.output)
   with patch.object(core,'upload_imagekit',side_effect=AssertionError('network should not run')):
