@@ -1,0 +1,2 @@
+# App and source-only tests. Renderer dependencies run in Blender's Python.
+Pillow>=10.4,<13

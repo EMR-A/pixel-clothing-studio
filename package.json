@@ -1,0 +1,12 @@
+{
+  "name": "pixel-clothing-studio",
+  "version": "0.1.0",
+  "private": true,
+  "license": "GPL-3.0-or-later",
+  "description": "Optional browser tests for Pixel Clothing Studio",
+  "scripts": {
+    "test:ui": "node tests/ui_languages.cjs"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": { "playwright": "1.62.1" }
+}
