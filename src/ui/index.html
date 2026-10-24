@@ -1,0 +1,79 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- Copyright (C) 2026 Pixel Clothing Studio contributors -->
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pixel Clothing Studio</title><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head>
+<body>
+<svg class="icon-library" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="i-shirt" viewBox="0 0 24 24"><path d="m8 3-6 4 3 5 3-1v10h8V11l3 1 3-5-6-4c0 4-8 4-8 0Z"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 17H6a4 4 0 0 1-.5-8A6.5 6.5 0 0 1 18 8a4.5 4.5 0 0 1 0 9h-1M12 21V11m-4 4 4-4 4 4"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 1 1 4 3c-1 .5-1 1-1 2m0 3v.1"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V4h6l2 3h10v13H3Zm0 3h18"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16m-11-15v6m6 0v6m-7 0v6"/></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="9" r="5"/><path d="m12 12 8 8m-3-3 3-3m-6 0 3-3"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+</defs></svg>
+<div class="app-shell">
+ <aside class="sidebar">
+  <a class="brand" href="#" aria-label="Pixel Clothing Studio"><span class="brand-mark"><b></b><b></b><b></b><b></b></span><span>pixel<span class="brand-sub">CLOTHING STUDIO</span></span></a>
+  <div class="sidebar-label">ÇALIŞMA ALANI</div>
+  <nav aria-label="Ana menü">
+   <button class="nav-item active" data-view="render" aria-label="Görsel üret" title="Görsel üret"><svg><use href="#i-shirt"/></svg><span>Görsel üret</span><span class="nav-step">01</span></button>
+   <button class="nav-item" data-view="upload" aria-label="Buluta aktar" title="Buluta aktar"><svg><use href="#i-cloud"/></svg><span>Buluta aktar</span><span class="nav-step">02</span></button>
+   <button class="nav-item" data-view="help" aria-label="Kullanım rehberi" title="Kullanım rehberi"><svg><use href="#i-help"/></svg><span>Kullanım rehberi</span></button>
+  </nav>
+  <div class="sidebar-note"><span class="small-dot"></span><strong>Senin paketin.<br>Senin kütüphanen.</strong><p>Görseller kendi bilgisayarında üretilir, kendi bulut hesabına yüklenir.</p><div class="format-tags"><span>512 × 512</span><span>Şeffaf WebP</span></div></div>
+  <div class="sidebar-bottom"><span class="connected-dot"></span><span id="connection-label">Masaüstü bağlantısı</span><button id="exit" title="Programı kapat" aria-label="Programı kapat"><svg><use href="#i-close"/></svg></button></div>
+ </aside>
+ <main>
+  <header class="topbar"><span id="breadcrumb">Atölye <i>/</i> Görsel üret</span><div class="topbar-actions"><select id="language" class="language-select" aria-label="Dil / Language"></select><div class="theme-switch" role="group" aria-label="Görünüm teması"><button data-theme="light" aria-pressed="true">Açık</button><button data-theme="dark" aria-pressed="false">Koyu</button></div><span class="status-pill" id="status-pill"><span></span><b>Hazır</b></span></div></header>
+  <div class="workspace">
+   <section id="view-render" class="view active">
+    <div class="page-heading"><div><span class="eyebrow">KIYAFET ATÖLYESİ</span><h1>Paketinden bir<br><em>görsel kütüphanesi.</em></h1><p>Kıyafetlerini ve tüm renk seçeneklerini, tek bir düzen içinde hazırla.</p></div><div class="heading-symbol"><svg><use href="#i-shirt"/></svg><span>01</span></div></div>
+    <div class="studio-grid">
+     <div class="work-column">
+      <section class="card source-card"><div class="section-label"><span class="step-badge">1</span><h2>Paket veya tek dosya seç</h2></div><p class="muted">Klasör veya .ydd/.ytd dosyası seç.</p>
+       <button class="folder-selector" data-choose="source"><span class="folder-icon"><svg><use href="#i-folder"/></svg></span><span class="folder-text"><strong id="source-name">Bir kıyafet klasörü seç</strong><span id="source-path">.ydd modelleri ve .ytd dokuları birlikte taranır</span></span><span class="choose-label">Göz at <span>↗</span></span></button>
+       <button class="button secondary file-picker" data-choose="source-file"><svg><use href="#i-shirt"/></svg>Tek dosya seç (.ydd / .ytd)</button><label class="source-path-label" for="source-input">Klasör yolu <span class="optional">Yapıştırarak da girebilirsin</span></label><input id="source-input" autocomplete="off" spellcheck="false" placeholder="C:\FiveM\resources\[clothes]\paketim">
+       <div class="field-caption"><button class="text-button" data-guide="package">Hangi klasörü seçmeliyim?</button><span>Tek dosya güncellemesi diğer kıyafetleri korur.</span></div>
+       <details id="advanced"><summary><svg><use href="#i-settings"/></svg>Diğer ayarlar<span>+</span></summary><div class="advanced-fields">
+        <label>Çıktı klasörü<div class="input-action"><input id="output" autocomplete="off"><button data-choose="output" aria-label="Çıktı klasörü seç">Seç</button></div></label>
+        <label>GTA V Legacy<div class="input-action"><input id="game" autocomplete="off" placeholder="Otomatik bulunamadıysa seç"><button data-choose="game" aria-label="GTA V klasörü seç">Seç</button></div></label>
+        <label>Koleksiyon <span class="optional">İsteğe bağlı</span><input id="collection" autocomplete="off" placeholder="mp_m_freemode_01_my_pack"></label>
+        <button class="text-button" data-guide="game">Bu ayarlar ne işe yarar?</button>
+       </div></details>
+       <div class="card-actions"><button class="button primary" id="render-start"><svg><use href="#i-shirt"/></svg>Görselleri oluştur<svg><use href="#i-arrow"/></svg></button><button class="button secondary" data-action="preview"><svg><use href="#i-eye"/></svg>Önizleme</button></div>
+      </section>
+      <section class="flow-note"><span class="outline-step">2</span><div><h3>Hazır olduğunda buluta aktar.</h3><p>ImageKit’e yükle; seçtiğin pixel-skin’e otomatik bağlansın.</p></div><button class="icon-button" data-view="upload" aria-label="Buluta aktar sayfasına git"><svg><use href="#i-arrow"/></svg></button></section>
+     </div>
+     <section class="progress-card" aria-label="İşlem durumu"><div class="progress-card-top"><span class="eyebrow">CANLI İLERLEME</span><span class="phase-label">Başlamaya hazır</span></div><div class="progress-visual"><svg class="progress-ring" viewBox="0 0 160 160"><circle class="ring-track" cx="80" cy="80" r="68"/><circle class="ring-value" cx="80" cy="80" r="68"/></svg><div class="ring-content"><strong class="percent">0<span>%</span></strong><span class="counter">0 / 0 <span>görsel</span></span></div></div><div class="eta-label">TAHMİNİ KALAN SÜRE</div><strong class="eta">—</strong><p class="eta-note">İlk görseller tamamlanınca hesaplanır.</p><div class="metrics"><div><span>Geçen süre</span><strong class="elapsed">00:00</strong></div><div><span class="speed-label">Üretim hızı</span><strong class="speed">—</strong></div></div><div class="mini-progress"><span></span></div><div class="progress-foot"><span class="current-label">Henüz işlem başlamadı.</span><button class="stop-button" hidden>Durdur</button></div></section>
+    </div>
+   </section>
+   <section id="view-upload" class="view">
+    <div class="page-heading"><div><span class="eyebrow">BULUT KÜTÜPHANESİ</span><h1>Görsellerin hazır.<br><em>Şimdi oyuna taşı.</em></h1><p>Kendi ImageKit hesabını bağla. Görseller başlangıç indirmesine eklenmez.</p></div><div class="heading-symbol"><svg><use href="#i-cloud"/></svg><span>02</span></div></div>
+    <div class="studio-grid">
+     <div class="work-column"><section class="card upload-card"><div class="section-label"><span class="step-badge">2</span><h2>ImageKit’e yükle</h2></div><p class="muted">Yükleme ve dosya doğrulaması tek işlemde tamamlanır.</p>
+      <div class="skin-target"><label for="skin">pixel-skin klasörü</label><div class="input-action"><input id="skin" autocomplete="off" spellcheck="false" placeholder="C:\FiveM\resources\[charac]\pixel-skin"><button data-choose="skin" aria-label="pixel-skin klasörü seç">Göz at</button></div><p class="field-hint">fxmanifest.lua içeren pixel-skin klasörünü seç. Ayarlar otomatik kurulur ve yedeklenir.</p><button class="text-button" data-guide="skin">Hangi pixel-skin klasörünü seçmeliyim?</button></div><div class="key-guide-box"><span class="key-icon"><svg><use href="#i-key"/></svg></span><div><h3>Önce private key’ini al.</h3><p>Developer Options → API Keys → Private key</p><div class="inline-buttons"><button class="text-button" id="open-keys">Anahtar sayfasını aç ↗</button><button class="text-button subdued" data-guide="key">Adım adım yardım</button></div></div></div>
+      <label class="key-label" for="private-key">ImageKit private key</label><div class="key-input"><input id="private-key" type="password" autocomplete="off" spellcheck="false" placeholder="private_…"><button id="toggle-key" class="icon-button" aria-label="Anahtarı göster" aria-pressed="false"><svg><use href="#i-eye"/></svg></button></div><p class="field-hint">Anahtar kaydedilmez ve skin dosyalarına eklenmez.</p>
+      <div class="output-summary"><svg><use href="#i-folder"/></svg><div><span>Yüklenecek kütüphane</span><strong id="upload-folder">Belgeler / Pixel Clothing Studio</strong></div><button class="text-button" id="edit-output">Değiştir</button></div>
+      <button class="button primary full-width" id="upload-start"><svg><use href="#i-cloud"/></svg>Yükle ve otomatik bağla<svg><use href="#i-arrow"/></svg></button><button id="integrate-existing" class="text-button existing-upload">Görseller zaten yüklü → pixel-skin’e bağla</button><p class="field-hint">Aynı çıktı klasörü ve ImageKit hesabıyla yalnızca yeni veya değişen görseller yüklenir.</p>
+     </section><section id="cloud-result" class="card cloud-result" hidden><div class="section-label"><span class="success-icon"><svg><use href="#i-check"/></svg></span><h2 id="integration-title">Yükleme tamamlandı.</h2></div><p class="muted" id="integration-message">pixel-skin bağlantısı hazırlanıyor.</p><p class="field-hint" id="integration-restart">Açık sunucuda restart pixel-skin çalıştır. Kapalıysa sonraki açılışta uygulanır.</p><div class="copy-field"><input id="cloud-url" readonly aria-label="CDN adresi"><button id="copy-cloud" class="icon-button" title="CDN adresini kopyala"><svg><use href="#i-copy"/></svg></button></div><div class="inline-buttons"><button class="button secondary" data-action="open-settings">Ayar dosyaları</button><button class="text-button" data-guide="skin">Otomatik bağlantı hakkında</button></div></section></div>
+     <section class="progress-card" aria-label="Yükleme durumu"><div class="progress-card-top"><span class="eyebrow">CANLI İLERLEME</span><span class="phase-label">Başlamaya hazır</span></div><div class="progress-visual"><svg class="progress-ring" viewBox="0 0 160 160"><circle class="ring-track" cx="80" cy="80" r="68"/><circle class="ring-value" cx="80" cy="80" r="68"/></svg><div class="ring-content"><strong class="percent">0<span>%</span></strong><span class="counter">0 / 0 <span>görsel</span></span></div></div><div class="eta-label">TAHMİNİ KALAN SÜRE</div><strong class="eta">—</strong><p class="eta-note">Hız ölçüldükçe tahmin güncellenir.</p><div class="metrics"><div><span>Geçen süre</span><strong class="elapsed">00:00</strong></div><div><span class="speed-label">Aktarım hızı</span><strong class="speed">—</strong></div></div><div class="mini-progress"><span></span></div><div class="progress-foot"><span class="current-label">Görseller yükleme sırasında doğrulanır.</span><button class="stop-button" hidden>Durdur</button></div></section>
+    </div>
+   </section>
+   <section id="view-help" class="view"><div class="page-heading"><div><span class="eyebrow">KULLANIM REHBERİ</span><h1>Her adım,<br><em>açıkça anlatıldı.</em></h1><p>Klasör seçiminden skin ayarlarına kadar ihtiyacın olan açıklamalar.</p></div></div><div class="help-grid"><button class="help-card" data-guide="package"><svg><use href="#i-folder"/></svg><h2>Kıyafet klasörü</h2><p>Custom paket dosyalarını nereden seçeceğini öğren.</p><span>Rehberi aç →</span></button><button class="help-card" data-guide="key"><svg><use href="#i-key"/></svg><h2>ImageKit private key</h2><p>Hesap, anahtar ve gerekli izinler için adım adım rehber.</p><span>Rehberi aç →</span></button><button class="help-card" data-guide="game"><svg><use href="#i-settings"/></svg><h2>Üretim ayarları</h2><p>GTA V yolu, çıktı klasörü ve koleksiyon bilgisi.</p><span>Rehberi aç →</span></button><button class="help-card" data-guide="skin"><svg><use href="#i-shirt"/></svg><h2>Skin’e tanıtma</h2><p>pixel-skin klasörünü seç; ImageKit bağlantısı otomatik kurulsun.</p><span>Rehberi aç →</span></button></div></section>
+   <section class="activity-section"><div class="activity-heading"><h2>Atölye durumu</h2><button class="text-button subdued" data-action="open-output"><svg><use href="#i-folder"/></svg>Çıktı klasörünü aç ↗</button></div><div class="activity-card"><div class="preview-tile"><svg id="preview-placeholder"><use href="#i-shirt"/></svg><img id="latest-preview" alt="En son işlenen kıyafet" hidden></div><div class="activity-text"><span class="activity-overline">SON DURUM</span><strong id="activity-message" aria-live="polite">Kıyafet paketini seçerek başlayın.</strong><span id="activity-current">Üretim tamamlandığında önizlemeni burada görebilirsin.</span></div><div class="activity-stats"><div><strong id="stat-saved">0</strong><span>Hazır</span></div><div><strong id="stat-cached">0</strong><span>Önceden hazır</span></div><div><strong id="stat-failed">0</strong><span>Eksik / hata</span></div></div></div><details class="log-details"><summary>İşlem ayrıntıları <span>+</span></summary><div id="event-log" class="event-log"></div></details></section>
+   <footer class="workspace-footer"><span>PIXEL CLOTHING STUDIO</span><span>Üretim bilgisayarında. Yayın kendi hesabında.</span></footer>
+  </div>
+ </main>
+</div>
+<dialog id="guide-dialog"><div class="dialog-heading"><span class="eyebrow">KULLANIM REHBERİ</span><button id="close-guide" class="icon-button" aria-label="Rehberi kapat"><svg><use href="#i-close"/></svg></button></div><h2 id="guide-title"></h2><div id="guide-body"></div><button id="guide-keys-link" class="button primary" hidden>Anahtar sayfasını aç ↗</button></dialog>
+<div id="picker-status" role="status" hidden><span class="picker-spinner"></span><strong>Windows seçim penceresi açılıyor…</strong><span>Bir dosya/klasör seç veya İptal’e bas. Pencereyi göremiyorsan görev çubuğunu kontrol et.</span></div>
+<div id="toast" role="status" hidden></div>
+<script src="/app.js"></script>
+</body></html>
